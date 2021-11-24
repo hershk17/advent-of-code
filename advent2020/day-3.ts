@@ -16,7 +16,6 @@ async function processLineByLine() {
 
   let count: number = 0;
   for (let i: number = 0; i < data.length - 1; i++) {
-    // console.log(data[i + 1][(3 * (i + 1)) % data[0].length] + " ");
     if (data[i + 1][(3 * (i + 1)) % data[0].length] === "#") {
       count++;
     }
@@ -37,14 +36,25 @@ async function processLineByLine2() {
     data.push(line);
   }
 
-  let count: number = 0;
-  for (let i: number = 0; i < data.length - 1; i++) {
-    // console.log(data[i + 1][(3 * (i + 1)) % data[0].length] + " ");
-    if (data[i + 1][(3 * (i + 1)) % data[0].length] === "#") {
-      count++;
+  const slopes: number[][] = [
+    [1, 1],
+    [3, 1],
+    [5, 1],
+    [7, 1],
+    [1, 2],
+  ];
+
+  let prod: number = 1;
+  for (let slope of slopes) {
+    let count: number = 0;
+    for (let i: number = 0, j:number = 0; i < data.length - slope[1]; i+=slope[1], j++) {
+      if (data[i + slope[1]][(slope[0] * (j + 1)) % data[0].length] === "#") {
+        count++;
+      }
     }
+    prod *= count;
   }
-  console.log(count);
+  console.log(prod);
 }
 
 processLineByLine();
