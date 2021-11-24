@@ -41,12 +41,12 @@ async function processLineByLine2() {
   for await (const line of rl) {
     var keys = line.split(new RegExp("-|\\-| |\\: ", "g"));
 
-    let num1: number = Number(keys[0]) - 1;
-    let num2: number = Number(keys[1]) - 1;
+    let c1: string = keys[3][Number(keys[0]) - 1];
+    let c2: string = keys[3][Number(keys[1]) - 1];
 
     if (
-      (line[num1] === keys[2] && line[num2] !== keys[2]) ||
-      (line[num1] !== keys[2] && line[num2] === keys[2])
+      (c1 === keys[2] && c2 !== keys[2]) ||
+      (c1 !== keys[2] && c2 === keys[2])
     ) {
       valid++;
     }
