@@ -13,7 +13,6 @@ async function processLineByLine() {
   for await (const line of rl) {
     data.push(line);
   }
-
 }
 
 async function processLineByLine2() {
@@ -28,8 +27,6 @@ async function processLineByLine2() {
   for await (const line of rl) {
     data.push(line);
   }
-
-  
 }
 
 processLineByLine();
