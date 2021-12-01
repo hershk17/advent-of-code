@@ -2,7 +2,7 @@ import fs = require("fs");
 import readline = require("readline");
 
 async function processLineByLine() {
-  const fileStream = fs.createReadStream("inputs/dayx.txt");
+  const fileStream = fs.createReadStream("inputs/day1.txt");
 
   const rl = readline.createInterface({
     input: fileStream,
@@ -13,10 +13,19 @@ async function processLineByLine() {
   for await (const line of rl) {
     data.push(line);
   }
+
+  let cnt: number = 0;
+  for (let i = 1; i < data.length; i++) {
+      if(Number(data[i]) > Number(data[i-1])) {
+          cnt++;
+      }
+  }
+
+  console.log(cnt);
 }
 
 async function processLineByLine2() {
-  const fileStream = fs.createReadStream("inputs/dayx.txt");
+  const fileStream = fs.createReadStream("inputs/day1.txt");
 
   const rl = readline.createInterface({
     input: fileStream,
@@ -29,5 +38,5 @@ async function processLineByLine2() {
   }
 }
 
-processLineByLine();
-// processLineByLine2();
+// processLineByLine();
+processLineByLine2();
