@@ -32,10 +32,19 @@ async function processLineByLine2() {
     crlfDelay: Infinity,
   });
 
-  let data: string[] = [];
+  let data: number[] = [];
   for await (const line of rl) {
-    data.push(line);
+    data.push(Number(line));
   }
+  
+  let cnt: number = 0;
+  for (let i = 0; i < data.length; i++) {
+      if((data[i] + data[i+1] + data[i+2]) < (data[i+1] + data[i+2] + data[i+3])) {
+          cnt++;
+      }
+  }
+
+  console.log(cnt);
 }
 
 // processLineByLine();
