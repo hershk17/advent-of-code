@@ -38,16 +38,28 @@ def part1():
             print(sum(list(set(r) - set(drawn)))*drawn[len(drawn)-1])
             break
 
+
+bingos = []
+def checkBingos2():
+    for board in boards:
+        if board not in bingos:
+            for i in range(5):
+                if board[5*i] in drawn and board[5*i+1] in drawn and board[5*i+2] in drawn and board[5*i+3] in drawn and board[5*i+4] in drawn:
+                    bingos.append(board)
+                    break
+                if board[5*0+i] in drawn and board[5*1+i] in drawn and board[5*2+i] in drawn and board[5*3+i] in drawn and board[5*4+i] in drawn:
+                    bingos.append(board)
+                    break;
+
 def part2():
-    bingos = []
     for i in range(len(calls)):
         drawn.append(calls[i])
-        r = checkBingos()
-        if r != None:
-            bingos.append(r)
-    print(bingos)
-    # print(sum(list(set(bingos[len(bingos)-1]) - set(drawn)))*drawn[len(drawn)-1])
-                
+        checkBingos2()
+        l1 = len(bingos)
+        l2 = len(boards)
+        if l1 == l2:
+            print(sum(list(set(bingos[l1-1]) - set(drawn)))*drawn[len(drawn)-1])
+            break
 
 # part1()
 part2()
