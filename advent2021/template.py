@@ -1,10 +1,11 @@
-def part1():
-    file=open("inputs/dayx.txt","rt")
-    data=file.readlines()
+file=open("inputs/dayx.txt","rt")
+lines=file.readlines()
 
+def part1():
+    pass
+    
 def part2():
-    file=open("inputs/dayx.txt","rt")
-    data=file.readlines()
+    pass
 
 part1()
 part2()
