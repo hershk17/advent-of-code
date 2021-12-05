@@ -47,7 +47,7 @@ def part1():
 
 
 def part2():
-    
+    print(part1())
 
 print(part1())
 print(part2())
