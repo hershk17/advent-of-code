@@ -1,24 +1,12 @@
-file=open("inputs/day6.txt","rt")
-lines=file.readlines()
+def simulate_days(days):
+    lf=list(map(int,((open("inputs/day6.txt","rt")).readlines())[0].split(',')))
+    fishies=[0]*9
+    for i in lf:
+        fishies[i]+=1
+    for i in range(days):
+        fishies.append(fishies.pop(0))
+        fishies[6]+=fishies[8]
+    print(sum(fishies))
 
-lf = list(map(int,lines[0].split(',')))
-
-
-def simulate_day():
-    l = len(lf)
-    for i in range(l):
-        lf[i]-=1
-        if lf[i] < 0:
-            lf[i] = 6
-            lf.append(8)
-
-def part1():
-    for i in range(80):
-        simulate_day()
-    print(len(lf))
-    
-def part2():
-    pass
-
-part1()
-part2()
+simulate_days(80)
+simulate_days(256)
