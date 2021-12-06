@@ -1,7 +1,7 @@
 def simulate_days(days):
-    lf=list(map(int,((open("inputs/day6.txt","rt")).readlines())[0].split(',')))
+    data=list(map(int,((open("inputs/day6.txt","r")).readlines())[0].split(',')))
     fishies=[0]*9
-    for i in lf:
+    for i in data:
         fishies[i]+=1
     for i in range(days):
         fishies.append(fishies.pop(0))
