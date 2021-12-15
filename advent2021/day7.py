@@ -1,5 +1,5 @@
-from math import inf
 import statistics
+from math import inf
 
 data=list(map(int,open("inputs/day7.txt","r").readlines()[0].split(',')))
 
