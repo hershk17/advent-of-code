@@ -22,5 +22,5 @@ def part2():
             min_cost=cost
     print(int(min_cost))
 
-# part1()
+part1()
 part2()
